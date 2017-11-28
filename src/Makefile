@@ -2,7 +2,7 @@
 CC=g++
 
 # FLAGS
-CF=-Wall -Wextra -pedantic -std=c++11 -pthread
+CF=-Wall -Wextra -pedantic -std=c++11
 
 # PROJECT
 PROJECT=ims
@@ -19,7 +19,7 @@ $(PROJECT).o: $(PROJECT).cpp $(A).hpp
 	$(CC) $(CF) -c $(PROJECT).cpp -o $(PROJECT).o
 
 $(PROJECT): $(A).o $(PROJECT).o
-	$(CC) $(CF) $(A).o $(PROJECT).o -o $(PROJECT)
+	$(CC) $(CF) $(A).o $(PROJECT).o -lsimlib -lm -o $(PROJECT)
 
 clean:
 	rm -f *.o
