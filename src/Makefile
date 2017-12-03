@@ -5,7 +5,7 @@ CC=g++
 CF=-Wall -Wextra -pedantic -std=c++11
 
 # PROJECT
-PROJECT=ims
+PROJECT=main
 
 # MODULES
 A=data_types
