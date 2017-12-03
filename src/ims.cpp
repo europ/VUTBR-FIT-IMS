@@ -3,6 +3,7 @@
 
 #include "simlib.h"
 
+#include "macros.hpp"
 #include "constants.hpp"
 #include "data_types.hpp"
 #include "file_data.hpp"

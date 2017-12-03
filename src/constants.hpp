@@ -1,37 +1,21 @@
 #ifndef __constatns_hpp
 #define __constatns_hpp
 
-#define FILE_PATH_OF_DATA_1 "../data/ulice1.tsv"
-#define FILE_PATH_OF_DATA_2 "../data/ulice2.tsv"
+#define FILE_PATH_OF_DATA_1 "../data/ulice1.tsv" // file path to ulice1.tsv
+#define FILE_PATH_OF_DATA_2 "../data/ulice2.tsv" // file path to ulice2.tsv
 
-// STRING ===========================================================================
+#define BIN_SMALL_MIN_KG 24 // half of max capacity [kg]
+#define BIN_SMALL_MAX_KG 48 // max capacity [kg]
 
-#define ECHO() std::cout << std::endl;
+#define BIN_LARGE_MIN_KG 150 // half of max capacity [kg]
+#define BIN_LARGE_MAX_KG 300 // max capacity [kg]
 
-#define PRINT(data) std::cout << data << std::endl << std::endl;
+#define CAR_CAPACITY_KG 10000 // max capacity [kg]
+#define CAR_AVERAGE_SPEED 20  // average speed [km/h]
+#define CAR_FUEL_CONSUMPTION_PER_KM 0.7 // consumption liter per kilometer [liter]
 
-#define PRINT_VEC(vector) {                                       \
-    for (auto i = vector.begin(); i != vector.end(); ++i) {       \
-        std::cout << *i << std::endl;                             \
-        if (std::next(i) != vector.end()) std::cout << std::endl; \
-    }                                                             \
-}
+#define PRICE_FUEL_PER_LITER 1.10 // price of 1 liter of fuel [€]
 
-// STREET ===========================================================================
-
-#define PRINT_STREET(s) {                                                \
-    std::cout << "bin_small_count = " << s.bin_small_count << std::endl  \
-              << "bin_large_count = " << s.bin_large_count << std::endl  \
-              << "street_length   = " << s.street_length   << std::endl; \
-}
-
-#define PRINT_STREET_VECTOR(vector) {                                           \
-    for (auto i = vector.begin(); i != vector.end(); ++i) {                     \
-        std::cout << "bin_small_count = " << (*i).bin_small_count << std::endl  \
-                  << "bin_large_count = " << (*i).bin_large_count << std::endl  \
-                  << "street_length   = " << (*i).street_length   << std::endl; \
-        if (std::next(i) != vector.end()) std::cout << std::endl;               \
-    }                                                                           \
-}
+#define DUMP_DISTANCE 27 // dump distance from town [km]
 
 #endif
