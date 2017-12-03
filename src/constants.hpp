@@ -1,7 +1,9 @@
 #ifndef __constatns_hpp
 #define __constatns_hpp
 
-#define SEED time(null)
+#include <time.h>
+
+#define SEED time(NULL)
 
 #define CAR_COUNT 1 // testing purposes
 
