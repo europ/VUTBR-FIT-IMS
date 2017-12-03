@@ -13,8 +13,9 @@ int main(int argc, char* argv[]) {
     (void)argc; // -Wunused-parameter    
     (void)argv; // -Wunused-parameter
 
-    std::vector<street> vec = load_tsv_file(DATA_PATH_1);
-    PRINT_STREET_VECTOR(vec);
+    std::vector<street> streets_1 = load_tsv_file(FILE_PATH_OF_DATA_1);
+
+    PRINT_STREET_VECTOR(streets_1);
 
     return 0;
 }

@@ -3,13 +3,13 @@
 
 typedef struct struct_street {
 
-    unsigned int bin_small_count; // 120 liter
-    unsigned int bin_large_count; // 1100 liter
-    unsigned int street_length;   // kilometers
+    unsigned int bin_small_count; // 120  liter bins  [count]
+    unsigned int bin_large_count; // 1100 liter bins  [count]
+    double street_length;         // length of street [kilometers]
     bool done;
 
 } street;
 
-street street_init(unsigned int bin_small_count, unsigned int bin_large_count, unsigned int street_length);
+street street_init(unsigned int bin_small_count, unsigned int bin_large_count, double street_length);
 
 #endif

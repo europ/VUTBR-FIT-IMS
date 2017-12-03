@@ -1,7 +1,8 @@
 #ifndef __constatns_hpp
 #define __constatns_hpp
 
-#define DATA_PATH_1 "../data/ulice1.tsv"
+#define FILE_PATH_OF_DATA_1 "../data/ulice1.tsv"
+#define FILE_PATH_OF_DATA_2 "../data/ulice2.tsv"
 
 // STRING ===========================================================================
 

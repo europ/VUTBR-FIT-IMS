@@ -1,6 +1,6 @@
 #include "data_types.hpp"
 
-street street_init(unsigned int bin_small_count, unsigned int bin_large_count, unsigned int street_length) {
+street street_init(unsigned int bin_small_count, unsigned int bin_large_count, double street_length) {
 
     street s;
 

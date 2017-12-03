@@ -7,16 +7,27 @@ street street_load(std::string str) {
 
     std::string value;
     std::stringstream ss(str);
-    std::vector<unsigned int> vec;
+
+    unsigned int bin_small_count;
+    unsigned int bin_large_count;
+    double       street_length;        
 
     unsigned int i = 0;
     while (std::getline(ss, value, '\t')) {
-        if (i == 3) break;
-        vec.push_back((unsigned)std::stoi(value));
+
+        if (i == 0)
+            bin_small_count = (unsigned)std::stoi(value);
+        else if (i == 1)
+            bin_large_count = (unsigned)std::stoi(value);
+        else if (i == 2)
+            street_length = std::stod(value);
+        else
+            break;
+
         i++;
     }
 
-    return street_init(vec[0],vec[1],vec[2]);
+    return street_init(bin_small_count, bin_large_count, street_length);
 }
 
 std::vector<street> load_tsv_file(std::string filename) {
