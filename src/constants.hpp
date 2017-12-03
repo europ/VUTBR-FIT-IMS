@@ -1,6 +1,10 @@
 #ifndef __constatns_hpp
 #define __constatns_hpp
 
+#define SEED time(null)
+
+#define CAR_COUNT 1 // testing purposes
+
 #define FILE_PATH_OF_DATA_1 "../data/ulice1.tsv" // file path to ulice1.tsv
 #define FILE_PATH_OF_DATA_2 "../data/ulice2.tsv" // file path to ulice2.tsv
 

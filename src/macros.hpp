@@ -5,7 +5,9 @@
 
 #define ECHO() std::cout << std::endl;
 
-#define PRINT(data) std::cout << data << std::endl << std::endl;
+#define PRINT(data) std::cout << data << std::endl;
+
+#define PRINTLN(data) std::cout << data << std::endl << std::endl;
 
 #define PRINT_VEC(vector) {                                       \
     for (auto i = vector.begin(); i != vector.end(); ++i) {       \
