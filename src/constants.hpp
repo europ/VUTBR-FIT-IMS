@@ -5,16 +5,16 @@
 
 #define SEED time(NULL)
 
-#define CAR_COUNT 1 // testing purposes
+#define CAR_COUNT 2 // testing purposes
 
-#define FILE_PATH_OF_DATA_1 "../data/ulice1.tsv" // file path to ulice1.tsv
-#define FILE_PATH_OF_DATA_2 "../data/ulice2.tsv" // file path to ulice2.tsv
+#define FILE_PATH_OF_DATA_1 "../data/default_sim_2cars/ulice1.tsv" // file path to ulice1.tsv
+#define FILE_PATH_OF_DATA_2 "../data/default_sim_2cars/ulice2.tsv" // file path to ulice2.tsv
 
-#define BIN_SMALL_MIN_KG 24 // half of max capacity [kg]
-#define BIN_SMALL_MAX_KG 48 // max capacity [kg]
+#define BIN_SMALL_MIN_KG 10 // half of max avg. weight of trash [kg]
+#define BIN_SMALL_MAX_KG 40 // max avg. weight of trash [kg]
 
-#define BIN_LARGE_MIN_KG 150 // half of max capacity [kg]
-#define BIN_LARGE_MAX_KG 300 // max capacity [kg]
+#define BIN_LARGE_MIN_KG 100 // half of max capacity [kg]
+#define BIN_LARGE_MAX_KG 150 // max avg. weight of trash [kg]
 
 #define CAR_CAPACITY_KG 10000 // max capacity [kg]
 #define CAR_AVERAGE_SPEED 20  // average speed [km/h]
