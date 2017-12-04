@@ -2,7 +2,7 @@
 CC=g++
 
 # FLAGS
-CF=-Wall -Wextra -pedantic -std=c++11
+CF=-Wall -Wextra -pedantic -std=c++11 -g
 
 # PROJECT
 PROJECT=main
