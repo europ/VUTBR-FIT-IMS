@@ -11,6 +11,7 @@ PROJECT=main
 A=data_types
 B=file_data
 
+.PHONY: all
 all: $(PROJECT)
 
 $(A).o: $(A).cpp $(A).hpp
@@ -25,11 +26,22 @@ $(PROJECT).o: $(PROJECT).cpp $(A).hpp $(B).hpp
 $(PROJECT): $(A).o $(B).o $(PROJECT).o
 	$(CC) $(CF) $(A).o $(B).o $(PROJECT).o -lsimlib -lm -o $(PROJECT)
 
+.PHONY: run
 run:
 	@./$(PROJECT)
 
+.PHONY: clean
 clean:
 	rm -f *.o
 
+.PHONY: clean-all
 clean-all: clean
 	rm -f $(PROJECT)
+
+.PHONY: test
+test: clean-all all
+	while true; do     \
+		./$(PROJECT);  \
+		echo "";       \
+		sleep 1;       \
+	done
