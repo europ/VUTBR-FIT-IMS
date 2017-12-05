@@ -7,6 +7,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
 \usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{url}
 
 \graphicspath{{img/}}
 
@@ -73,17 +75,26 @@
 
 \section{Rozbor témy}
 
-    \indent Potrebné informácie a fakty potrebné k implementácii bolí získané na osobnom stretnutí s pánom Attilom Šimkom v organizácii \textit{Technické služby mesta Rimavská Sobota}. Boli nám poskytnuté štatistické informácie o komunálnom odpade, o strojoch potrebných na spracovanie komunálneho odpadu a o skládke na komunálny odpad.
-
-    AUTO: Mercedes-Benz Atego
+    \indent Potrebné informácie a fakty potrebné k implementácii boli získané na osobnom stretnutí s pánom Attilom Šimkom v organizácii \textit{Technické služby mesta Rimavská Sobota}\cite{TSMRS}. Na osobnom stretnutí nám boli poskytnuté štatistické informácie o komunálnom odpade, informácie o vozidlách potrebných na odvoz komunálneho odpadu a o skládke na komunálny odpad.\\[0.4em]
+    \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
+    \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou v Nemecku ako ojazdené vozidlá.\\[0.4em]
+    \indent Zber komunálneho odpadu v meste Rimavská Sobota sa delí na zóny\cite{ZONA}, kde sa za jeden deň vyzbierajú 2 zóny pričom do zón sa vyšlú dve autá. Jedno auto má na starosti vyzbierať komunálny odpad jednej zóny za jeden deň ktorá mu je pridelená.\\[0.4em]
+    \indent Cena paliva k behu vozidla je 1.20\euro{} za jeden liter nafty\cite{NAFTA}. Vzdialenosť skládky od mesta je 26 až 28 kilometrov v závislosti od polohy auta v meste\cite{VZDIALENOST}.
 
     \subsection{Použité postupy}
 
         Asdf.
 
-    \subsection{Použité metódy a technológie}
+    \subsection{Použité technológie}
 
-        Asdf.
+        \noindent K implementácii boli využité nasledovné technológie:
+        \begin{itemize}
+            \item C++ {\color{blue}{\href{http://www.cplusplus.com/}{www.cplusplus.com}}}
+            \item g++ {\color{blue}{\href{https://www.cprogramming.com/g++.html}{www.cprogramming.com/g++.html}}}
+            \item SIMLIB {\color{blue}{\href{http://www.fit.vutbr.cz/\~peringer/SIMLIB/}{www.fit.vutbr.cz/{$\sim$}peringer/SIMLIB}}}
+            \item Ubuntu 16.04.3 LTS {\color{blue}{\href{http://releases.ubuntu.com/16.04/}{releases.ubuntu.com/16.04}}}
+        \end{itemize}
+
 
 \section{Koncepcia modelu}
 
