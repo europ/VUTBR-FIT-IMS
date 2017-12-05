@@ -12,12 +12,15 @@
 
 // GLOBAL VARIABLES
 unsigned int gv_car_count = 0; // car count
-double smeti[CAR_COUNT] = {0.0}; // TODO check it and rename it properly
-double gv_kms[CAR_COUNT] = {0.0}; // kilometers travelled
-double gv_duration[CAR_COUNT] = {0.0}; // time of collecting
-double gv_kg_oftrash[CAR_COUNT] = {0.0};// kg of trash in car
+double *smeti;//[CAR_COUNT] = {0.0}; // TODO check it and rename it properly
+double *gv_kms;//[CAR_COUNT] = {0.0}; // kilometers travelled
+double *gv_duration;//[CAR_COUNT] = {0.0}; // time of collecting
+double *gv_kg_oftrash;//[CAR_COUNT] = {0.0};// kg of trash in car
 
-std::vector<street> streets[CAR_COUNT];//streets - for every car different
+unsigned int car_count;//depends on 
+unsigned int dump_distance;
+
+std::vector< std::vector<street> > streets;//[CAR_COUNT];//streets - for every car different
 
 class Car : public Process {
     public:
@@ -32,7 +35,7 @@ class Car : public Process {
         double tmptime = 0.0;
         //std::vector<street> streets_1;
         //int carnum = procnum++;
-        std::cout<<carnum<<std::endl;
+        //std::cout<<carnum<<std::endl;
 
         //streets_1 = load_tsv_file(FILE_PATH_OF_DATA_1); // ulice pre auto
         tmptime = Uniform(2.5,3.5); // cas výjazdu v minutach
@@ -41,7 +44,7 @@ class Car : public Process {
         gv_duration[carnum] += tmptime;
         gv_kms[carnum] += CAR_AVERAGE_SPEED*(tmptime/60);
 
-        std::cout <<gv_kms[carnum]<<std::endl;
+        //std::cout <<gv_kms[carnum]<<std::endl;
 
         checkcapacity: // GOTO LABEL
 
@@ -62,7 +65,9 @@ class Car : public Process {
                 while( (gv_kg_oftrash[carnum] <= (CAR_CAPACITY_KG - BIN_LARGE_MAX_KG)) || (gv_kg_oftrash[carnum] <= (CAR_CAPACITY_KG - BIN_SMALL_MAX_KG)) ) {
                     //std::cout <<"while" + std::to_string(carnum) <<std::endl;
                     // vybavili sa kose na aktualnej ulici a mame este kapacitu na pokracovanie
-                    if( (tmp_street.bin_large_count == 0) && (tmp_street.bin_small_count == 0) ) {
+                    if( (tmp_street.bin_large_count == 0) && (tmp_street.bin_small_count == 0) ) {//ak na ulici vsetky kose vyprazdnene
+                        gv_kms[carnum] += tmp_street.street_length;//pridame prejetu dlzku
+                        gv_duration[carnum] += (tmp_street.street_length/CAR_AVERAGE_SPEED)*60;//pocet minut v ulici
                         streets[carnum].erase(streets[carnum].begin()); // odstranime aktualnu ulicu (odpad sme pozbierali)
                         break;
 
@@ -92,7 +97,7 @@ class Car : public Process {
 
                     }
 
-                    else {
+                    else {//ma este kapacitu na maly kos ale maly kos uz neni v ulici - tak odnesie smeti
 
                         break;
 
@@ -108,7 +113,7 @@ class Car : public Process {
                     tmptime = Uniform(50,55);
 
                     Wait(tmptime);
-                    gv_kms[carnum] += 60; // distance
+                    gv_kms[carnum] += 2*dump_distance; // distance
                     gv_duration[carnum] += tmptime; // celkovy cas
                     smeti[carnum] += gv_kg_oftrash[carnum]; // TODO why we use smeti variable?
 
@@ -136,7 +141,7 @@ class Car : public Process {
 
                 tmptime = Uniform(50,55);
                 Wait(tmptime);
-                gv_kms[carnum] += 60;
+                gv_kms[carnum] += 2*dump_distance;
                 gv_duration[carnum] += tmptime;
                 smeti[carnum] += gv_kg_oftrash[carnum]; // TODO
 
@@ -154,7 +159,7 @@ class Car : public Process {
 
             tmptime = Uniform(50,55);
             Wait(tmptime);
-            gv_kms[carnum] += 60;
+            gv_kms[carnum] += 2*dump_distance;
             gv_duration[carnum] += tmptime;
             smeti[carnum] += gv_kg_oftrash[carnum];
 
@@ -173,7 +178,7 @@ class Car : public Process {
 class Generator : public Event {
 
     void Behavior() {
-        for(; gv_car_count<CAR_COUNT; gv_car_count++) {
+        for(; gv_car_count<car_count; gv_car_count++) {
             (new Car(gv_car_count))->Activate(Time);
             //Activate(Time);
         }
@@ -185,18 +190,58 @@ class Generator : public Event {
 int main(int argc, char* argv[]) {
 
     (void)argc; // -Wunused-parameter
-    (void)argv; // -Wunused-parameter
+    //(void)argv; // -Wunused-parameter
 
-
-    if(CAR_COUNT==2){
-        streets[0] = load_tsv_file(FILE_PATH_OF_DATA_1); // ulice pre auto
-        streets[1] = load_tsv_file(FILE_PATH_OF_DATA_2);
+    if(argc!=2){
+        std::cerr << "Wrong arguments!" << std::endl;
+        exit(1);
     }
-    else if(CAR_COUNT==1){
-        std::vector<street> tmp1 = load_tsv_file(FILE_PATH_OF_DATA_1);
-        std::vector<street> tmp2 = load_tsv_file(FILE_PATH_OF_DATA_2);
-        tmp1.insert(tmp1.end(),tmp2.begin(),tmp2.end());
-        streets[0] = tmp1;
+
+
+    if(std::string(argv[1]) == "experiment1"){
+        car_count = 2;
+        dump_distance = 27;
+        smeti = new double[2]{0.0};
+        gv_kms = new double[2]{0.0};
+        gv_duration = new double[2]{0.0};
+        gv_kg_oftrash = new double[2]{0.0};
+
+
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
+        std::cout << "Experiment 1 " << std::endl;
+    }
+    else if(std::string(argv[1]) == "experiment2"){
+        dump_distance = 27;
+        car_count = 3;
+        smeti = new double[3]{0.0};
+        gv_kms = new double[3]{0.0};
+        gv_duration = new double[3]{0.0};
+        gv_kg_oftrash = new double[3]{0.0};
+
+
+
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_3)); // ulice pre auto
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_4));
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_5)); 
+        std::cout << "Experiment 2 " << std::endl;
+
+    }
+    else if(std::string(argv[1]) == "experiment3"){
+        dump_distance = 5;
+        car_count = 2;
+        smeti = new double[2]{0.0};
+        gv_kms = new double[2]{0.0};
+        gv_duration = new double[2]{0.0};
+        gv_kg_oftrash = new double[2]{0.0};
+
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
+        std::cout << "Experiment 3 " << std::endl;
+    }
+    else{
+        std::cerr << "Chybne argumenty!" << std::endl;
+        exit(1);
     }
 
 
@@ -206,20 +251,50 @@ int main(int argc, char* argv[]) {
     (new Generator)->Activate();
     Run();
 
+
+
     // TODO remove
-    std::cout << "prejete km auto c. 1 = " << gv_kms[0] << std::endl;
-    std::cout << "dlzka zberu auto c. 1   = " << gv_duration[0] << std::endl;
+    std::cout << "Prejete km auto c. 1 = " << gv_kms[0] << std::endl;
+    std::cout << "Dlzka zberu auto c. 1   = " << gv_duration[0]/60 << std::endl;
     std::cout << "smeti v aute c. 1 po dokonceni = " << gv_kg_oftrash[0] << std::endl;
-    std::cout << "smeti dokopy auto 1        = " << smeti[0] << std::endl;
+    std::cout << "Smeti dokopy auto c. 1        = " << smeti[0] << std::endl;
+    std::cout << "Spotreba auta c. 1        = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
 
-    std::cout << "prejete km auto c. 2 = " << gv_kms[1] << std::endl;
-    std::cout << "dlzka zberu auto c. 2   = " << gv_duration[1] << std::endl;
+    std::cout << "Prejete km auto c. 2 = " << gv_kms[1] << std::endl;
+    std::cout << "Dlzka zberu auto c. 2   = " << gv_duration[1]/60 << std::endl;
     std::cout << "smeti v aute c. 2 po dokonceni = " << gv_kg_oftrash[1] << std::endl;
-    std::cout << "smeti dokopy auto 2        = " << smeti[1] << std::endl;
+    std::cout << "Smeti dokopy auto c. 2        = " << smeti[1] << std::endl;
+    std::cout << "Spotreba auta c. 2        = " << gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
 
-    double tmp = smeti[0]+smeti[1];
+    if(std::string(argv[1]) == "experiment1" || std::string(argv[1]) == "experiment3"){
+        
+        double tmp_trash = smeti[0]+smeti[1];
+        double tmp_time = gv_duration[0]/60 + gv_duration[1]/60;
+        std::cout << "Celkovy cas zberu = " << tmp_time << std::endl;
+        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash << std::endl;
+    }
 
-    std::cout << "vsetkooooo " << tmp << std::endl;
-    
+ 
+
+    if(std::string(argv[1]) == "experiment2"){
+        std::cout << "Prejete km auto c. 3 = " << gv_kms[2] << std::endl;
+        std::cout << "Dlzka zberu auto c. 3   = " << gv_duration[2]/60 << std::endl;
+        std::cout << "meti v aute c. 3 po dokonceni = " << gv_kg_oftrash[2] << std::endl;
+        std::cout << "Smeti dokopy auto c. 3        = " << smeti[2] << std::endl;
+        std::cout << "Spotreba auto c. 3        = " << gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
+
+        double tmp_trash = smeti[0]+smeti[1]+smeti[2];
+        double tmp_time = gv_duration[0]/60 + gv_duration[1]/60 + gv_duration[2]/60;
+        std::cout << "Celkovy cas zberu = " << tmp_time << std::endl;
+        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash  << std::endl;
+    }
+
+
+    delete [] smeti;
+    delete [] gv_kms;
+    delete [] gv_duration;
+    delete [] gv_kg_oftrash;
+
+
     return 0;
 }

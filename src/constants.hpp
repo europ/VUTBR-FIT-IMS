@@ -7,8 +7,15 @@
 
 #define CAR_COUNT 2 // testing purposes
 
-#define FILE_PATH_OF_DATA_1 "../data/default_sim_2cars/ulice1.tsv" // file path to ulice1.tsv
-#define FILE_PATH_OF_DATA_2 "../data/default_sim_2cars/ulice2.tsv" // file path to ulice2.tsv
+#define FILE_PATH_OF_DATA_1 "../data/sim_2_cars/ulice1.tsv" // file path to ulice1.tsv
+#define FILE_PATH_OF_DATA_2 "../data/sim_2_cars/ulice2.tsv" // file path to ulice2.tsv
+
+
+#define FILE_PATH_OF_DATA_3 "../data/sim_3_cars/ulice1.tsv" // file path to ulice1.tsv
+#define FILE_PATH_OF_DATA_4 "../data/sim_3_cars/ulice2.tsv" // file path to ulice2.tsv
+#define FILE_PATH_OF_DATA_5 "../data/sim_3_cars/ulice3.tsv" // file path to ulice1.tsv
+
+
 
 #define BIN_SMALL_MIN_KG 10 // half of max avg. weight of trash [kg]
 #define BIN_SMALL_MAX_KG 40 // max avg. weight of trash [kg]
