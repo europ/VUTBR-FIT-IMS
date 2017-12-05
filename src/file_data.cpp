@@ -42,7 +42,8 @@ std::vector<street> load_tsv_file(std::string filename) {
         std::string line;
 
         while (std::getline(file, line)) {
-            vec.push_back(street_load(line));
+            if (!line.empty())
+                vec.push_back(street_load(line));
         }
 
     }

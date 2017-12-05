@@ -51,14 +51,14 @@ class Car : public Process {
         // kontrola kapacity
         if( (gv_kg_oftrash[carnum] <= (CAR_CAPACITY_KG - BIN_LARGE_MAX_KG)) || (gv_kg_oftrash[carnum] <= (CAR_CAPACITY_KG - BIN_SMALL_MAX_KG)) ) {
 
-           // std::cout <<"fasz" + std::to_string(carnum) <<std::endl;
+            //std::cout <<"fasz" + std::to_string(carnum) <<std::endl;
             // kym su ulice
             while(streets[carnum].size() > 0) {
 
                 // ziskame prvu ulicu
                 street tmp_street = streets[carnum][0];
 
-               // std::cout << "faszom    " + std::to_string(streets[carnum].size()) <<std::endl;
+                //std::cout << "faszom    " + std::to_string(streets[carnum].size()) <<std::endl;
 
 
                 // kym mame kapacitu
@@ -82,7 +82,9 @@ class Car : public Process {
                         gv_duration[carnum] += tmptime; // celkovy cas
                         gv_kg_oftrash[carnum] += Uniform(BIN_LARGE_MIN_KG,BIN_LARGE_MAX_KG); // dokopy všetky smeti
                         tmp_street.bin_large_count--;
+                       // std::cout <<"BIG " + std::to_string(tmp_street.bin_large_count) <<std::endl;
                         streets[carnum][0] = tmp_street;
+
                     }
 
                     // ak su male kose  akapacita tak vyprazdni sa maly kos
@@ -93,6 +95,7 @@ class Car : public Process {
                         gv_duration[carnum] += tmptime; // celkovy cas
                         gv_kg_oftrash[carnum] += Uniform(BIN_SMALL_MIN_KG,BIN_SMALL_MAX_KG); // dokopy všetky smeti
                         tmp_street.bin_small_count--;
+                        //std::cout <<"SMALL " + std::to_string(tmp_street.bin_small_count) <<std::endl;
                         streets[carnum][0] = tmp_street;
 
                     }
@@ -210,6 +213,12 @@ int main(int argc, char* argv[]) {
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
         std::cout << "Experiment 1 " << std::endl;
+    
+        /*PRINT_STREET_VECTOR(load_tsv_file(FILE_PATH_OF_DATA_1));
+        PRINT("============================");
+        PRINT_STREET_VECTOR(load_tsv_file(FILE_PATH_OF_DATA_2));
+        */
+
     }
     else if(std::string(argv[1]) == "experiment2"){
         dump_distance = 27;
@@ -271,7 +280,7 @@ int main(int argc, char* argv[]) {
         double tmp_trash = smeti[0]+smeti[1];
         double tmp_time = gv_duration[0]/60 + gv_duration[1]/60;
         std::cout << "Celkovy cas zberu = " << tmp_time << std::endl;
-        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash << std::endl;
+        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash << std::endl << std::endl;
     }
 
  
@@ -286,7 +295,7 @@ int main(int argc, char* argv[]) {
         double tmp_trash = smeti[0]+smeti[1]+smeti[2];
         double tmp_time = gv_duration[0]/60 + gv_duration[1]/60 + gv_duration[2]/60;
         std::cout << "Celkovy cas zberu = " << tmp_time << std::endl;
-        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash  << std::endl;
+        std::cout << "Celkovy pocet smeti v kg = " << tmp_trash  << std::endl << std::endl;
     }
 
 
