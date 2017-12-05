@@ -58,7 +58,7 @@
 \section{Úvod}
 
     \indent Táto práca sa zoberá problematikou odvozu komunálneho odpadu v meste Rimavská Sobota v Slovenskej republike. Pre daný problém bol navrhnutý a implementovaný model - \cite{IMS}(str. č. 7), ktorý sa využíva na simulačné účely - \cite{IMS}(str. č. 8). Simulačné výsledky slúžia na získavanie poznatkov o odvoze komunálneho odpadu, ktoré budú skúmané a popísane v ďalších kapitolách.\\[0.4em]
-    \indent Cieľom tohto projektu je poukázať na fakty ktoré môžu odvoz komunálneho odpadu ovplivniť z ekonomického hľadiska. Zmysel tejto práce je nájsť čo najekonomickejšie riešenie na náklady odvozu odpadu v meste Rimavská Sobota.
+    \indent Cieľom práce je poukázať na fakty ktoré môžu odvoz komunálneho odpadu ovplivniť z ekonomického hľadiska. Zmysel tejto práce je nájsť čo najekonomickejšie riešenie na náklady odvozu odpadu v meste Rimavská Sobota.
 
     \subsection{Zadanie}
 
@@ -83,7 +83,7 @@
 
     \subsection{Použité postupy}
 
-        Jazyk C++ sme zvolili z dôvodu že existuje vytvorená knižnica na simulovanie pre tento jazyk, ďalej je prenositeľný, rýchly, imperatívny a objektovo orientovaný. Knižnica SIMLIB bola zvolená pretože ponúka prostriedky na implementáciu simulačného modelu\cite{IMS}(str. č. 44) a tým zjednodušuje jeho implementáciu.
+        Jazyk C++ sme zvolili z dôvodu že existuje vytvorená knižnica na simulovanie pre tento jazyk, ďalej je prenositeľný, rýchly, imperatívny a objektovo orientovaný. Knižnica SIMLIB bola zvolená pretože ponúka prostriedky na implementáciu simulačného modelu - \cite{IMS}(str. č. 44), a tým zjednodušuje jeho implementáciu.
 
     \subsection{Použité technológie}
 
@@ -95,11 +95,14 @@
             \item Ubuntu 16.04.3 LTS {\color{blue}{\href{http://releases.ubuntu.com/16.04/}{releases.ubuntu.com/16.04}}}
         \end{itemize}
 
-        \indent Rozhodli sme sa pre výber hore uvedených technológii pretože sú voľne dostupné a súčastne je možné pomocou nich implementovať simulačný model\cite{IMS}(str. č. 44). Jazyk C++ a prekladač g++ sme sa rozhodli použiť kvôli knižnici SIMLIB, ktorá je vytvorená v jazyku C++.
+        \indent Rozhodli sme sa pre výber hore uvedených technológii pretože sú voľne dostupné a súčastne je možné pomocou nich implementovať simulačný model - \cite{IMS}(str. č. 44). Jazyk C++ a prekladač g++ sme sa rozhodli použiť kvôli knižnici SIMLIB, ktorá je vytvorená v jazyku C++.
 
 \section{Koncepcia modelu}
 
-    Asdf.
+    \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku.\\[0.4em]
+    \indent V rámci tohto modelu - \cite{IMS}(str. č. 7), vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu.\\[0.4em]
+    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené.\\[0.4em]
+    \indent Pre popis modelu - \cite{IMS}(str. č. 7), sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
 
     \subsection{Forma konceptuálneho modelu}
 
