@@ -35,7 +35,7 @@
 #define CAR_FUEL_CONSUMPTION_PER_KM 0.7 // consumption liter per kilometer [liter]
 
 
-#define PRICE_FUEL_PER_LITER 1.10 // price of 1 liter of fuel [€]
+#define PRICE_FUEL_PER_LITER 1.12 // price of 1 liter of fuel [€]
 
 #define DUMP_DISTANCE 27 // dump distance from town [km]
 
