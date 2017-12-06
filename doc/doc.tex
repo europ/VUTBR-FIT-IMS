@@ -102,7 +102,7 @@
 
     \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku.\\[0.4em]
     \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu. Keďže auto sa pri naplnení jeho kapacity môže nachádzať v rozličnej vzdialenosti od skládky, takže táto vzdialenosť je určená funkciou \textit{Uniform(50,58)}.\\[0.4em]
-    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
+    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebou prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
     \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú minimálnu hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
 
     \subsection{Popis konceptuálneho modelu}
@@ -115,6 +115,9 @@
     \caption{Zjednodušená petriho sieť}
     \label{P}
 \end{figure}
+
+    \indent Petriho sieť na obrázku ...TODOhref zobrazuje proces zberu odpadu jedného auta, tento proces je rovnaký pre všetky smetiarské autá, ich počet je vytvorený na základe typu simulácie. Auto na začiatku sa dostane na prvú ulicu kde začína prácu. Čas potrebný prechodu závisí na priemernej rýchlosti auta kde sa použilo uniformné rozdelenie +- 5km/h od rýchlosti, kvôli možnej spomalení v doprave v meste. Tiež súvisí na vzdialenosti prvej ulice, ktorá bola zistená pre jenotlivé autá pomocou Google Maps. Auto po vstupu do ulice postupne spracuje veľké kontajnery(kapacita 1100l) a malé smetné koše(kapacita 120l). Doba spracovania veľkého koša podľa meraní v terenú sa pohybujde v intervale 50-60 sekúnd, doba pre spracovanie malého koša v intervale 30-40 sekúnd. Ak vyzbieral všetky tak po čase potrebného k presunu cey danú ulicu ktorá je určená na základe dlžky ulice a priemernej rýchlosti smetiarkeho auta pokračuje sa na spracovanie ďalešej ulice kým nejaká nespracovaná existuje. Poradie spracovania a 
+    Rozšírená petriho sieť je vidieť v prílohe ...TODO... . Je zobrazená kapacita ktorá sa znižuje pri spracovaní smetného koša(podľa odobrného konzultanta naplnenie malého koša sa pohybuje v rozmedzí 10-40kg, naplnenie veľkého v rozmedzí 100-150kg). Ak počas spracovania odpadu v ulici  alebo pred vstupom do nasledujúcej ulice kapacita auta je naplnená tak sa odpad odvezie na skládku a spracovanie pokračuje ďalej. Odvoz sa taktiež vykoná po spracovaní všetkých ulíc a auto sa vráti do centráli, tým práca auta končí. 
 
 
 \section{Architektúra simulačného modelu}
