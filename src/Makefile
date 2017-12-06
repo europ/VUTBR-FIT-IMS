@@ -34,14 +34,10 @@ run:
 	
 .PHONY: clean
 clean:
-	rm -f *.o
-
-.PHONY: clean-all
-clean-all: clean
-	rm -f $(PROJECT)
+	rm -f *.o $(PROJECT)
 
 .PHONY: test
-test: clean-all all
+test: clean all
 	while true; do     			  \
 		./$(PROJECT) experiment1; \
 		./$(PROJECT) experiment2; \

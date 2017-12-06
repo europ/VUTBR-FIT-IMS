@@ -345,8 +345,8 @@ int main(int argc, char* argv[]) {
         std::cout << "Celkovy pocet smeti v kg       = " << tmp_trash  << " kg" << std::endl << std::endl;
         //TODO
         std::cout << "Celkove naklady na naftu       = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER << " €"<< std::endl << std::endl;
-        std::cout << "Celkove naklady posadka       = " << ceil(gv_duration[0]/60)*3*2.50 + ceil(gv_duration[1]/60)*3*2.50 + ceil(gv_duration[2]/60)*3*2.50<< " €"<< std::endl << std::endl;
-        std::cout << "Celkove naklady             = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + ceil(gv_duration[0]/60)*3*2.50 + ceil(gv_duration[1]/60)*3*2.50 + ceil(gv_duration[2]/60)*3*2.50 << " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady posadka        = " << ceil(gv_duration[0]/60)*3*2.50 + ceil(gv_duration[1]/60)*3*2.50 + ceil(gv_duration[2]/60)*3*2.50<< " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady                = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER + ceil(gv_duration[0]/60)*3*2.50 + ceil(gv_duration[1]/60)*3*2.50 + ceil(gv_duration[2]/60)*3*2.50 << " €"<< std::endl << std::endl;
         std::cout << "----------------------------------------------------------------------------" << std::endl << std::endl;
     }
 
