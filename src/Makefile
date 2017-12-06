@@ -42,8 +42,10 @@ clean-all: clean
 
 .PHONY: test
 test: clean-all all
-	while true; do     \
-		./$(PROJECT);  \
-		echo "";       \
-		sleep 1;       \
+	while true; do     			  \
+		./$(PROJECT) experiment1; \
+		./$(PROJECT) experiment2; \
+		./$(PROJECT) experiment3; \
+		echo "";       			  \
+		sleep 1;       			  \
 	done
