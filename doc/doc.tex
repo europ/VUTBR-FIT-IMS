@@ -101,11 +101,14 @@
 \section{Koncepcia modelu}
 
     \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku.\\[0.4em]
-    \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu.\\[0.4em]
-    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené.\\[0.4em]
-    \indent Pre popis modelu sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
+    \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu. Keďže auto sa pri naplnení jeho kapacity môže nachádzať v rozličnej vzdialenosti od skládky, takže táto vzdialenosť je určená funkciou \textit{Uniform(50,58)}.\\[0.4em]
+    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
+    \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú minimálnu hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
 
     \subsection{Forma konceptuálneho modelu}
+
+        \indent Pre popis modelu sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
+
 
         Asdf.
 
@@ -127,7 +130,7 @@
 \section{Simulačné experimenty a ich priebeh}
 
     \indent Cieľom experimentov je zistiť vplyv počtu smetiarskych vozidiel a vzdialenosť skládky na časové a finančné aspekty a tým zefektívniť zber a vývoz a znížiť výdavky mesta. Jedná sa o informácie ako doba potrebná na vývoz odpadu v danom dni, spotreba smetiarskych áut, financie na pohonné hmoty a financovanie zamestnancov.
-    
+
     \subsection{Popis použitia}
 
         \noindent \textbf{make} - preloženie programu\\[0.4em]
@@ -138,15 +141,16 @@
 
     \subsection{Experiment 1}
 
-        Asdf.
+        Experiment č. 1 simuluje aktuálny zber komunálneho odpadu na základe získaných informácii ktoré sú popísané v kapitole č. 2. V tomto experimente sú ulice rozdelené do dvoch častí pre dve smetiarske autá. Vzdialenosť skládky je na jej skutočnej vzdialenosti t.j. vo vzdialenosti 27 kilometrov od mesta.
+
 
     \subsection{Experiment 2}
 
-        Asdf.
+        Experiment č. 2 simuluje zber komunálneho odpadu troma autami a vzdialenosť skládky je rovnaká ako v predošlom experimente. V tomto experimente sú ulice rozdelené rovnomerne pre tri smetiarske autá.
 
     \subsection{Experiment 3}
 
-        Asdf.
+        Experiment č. 3 berie v úvahu bližšiu vzdialenosť skládky a dve smetiarske autá.
 
     \subsection{Záver simulačných experimentovaní}
 
