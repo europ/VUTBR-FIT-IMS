@@ -105,12 +105,16 @@
     \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
     \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú minimálnu hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
 
-    \subsection{Forma konceptuálneho modelu}
+    \subsection{Popis konceptuálneho modelu}
 
         \indent Pre popis modelu sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
 
-
-        Asdf.
+\begin{figure}[h]
+    \center
+    \includegraphics[scale=0.3]{../pn/petrinet-small.eps}
+    \caption{Zjednodušená petriho sieť}
+    \label{P}
+\end{figure}
 
 
 \section{Architektúra simulačného modelu}
@@ -129,7 +133,7 @@
 
 \section{Simulačné experimenty a ich priebeh}
 
-    \indent Cieľom experimentov je zistiť vplyv počtu smetiarskych vozidiel a vzdialenosť skládky na časové a finančné aspekty a tým zefektívniť zber a vývoz a znížiť výdavky mesta. Jedná sa o informácie ako doba potrebná na vývoz odpadu v danom dni, spotreba smetiarskych áut, financie na pohonné hmoty a financovanie zamestnancov. Experimenty boli realizované pomocou simulátoru.
+    \indent Cieľom experimentov je zistiť vplyv počtu smetiarskych vozidiel a vzdialenosť skládky na časové a finančné aspekty a tým zefektívniť zber a vývoz a znížiť výdavky mesta. Jedná sa o informácie ako doba potrebná na vývoz odpadu v danom dni, spotreba smetiarskych áut, financie na pohonné hmoty a financovanie zamestnancov. Experimenty boli realizované pomocou simulátoru. Hodnoty v tabuľkách \ref{E1}, \ref{E2} a \ref{E3} sú priemerné výsledky piatich experimentov.
 
     \subsection{Použitie simulátora}
 
@@ -186,14 +190,14 @@
 \begin{figure}[h]
     \center
     \includegraphics[scale=0.35]{../pn/pn-part1.eps}
-    \caption{Petriho sieť (časť 1)}
+    \caption{Petriho sieť (časť 1), \textit{X} určuje počet ulíc}
     \label{PN-P1}
 \end{figure}
 
 \begin{figure}[H]
     \center
     \includegraphics[scale=0.4]{../pn/pn-part2.eps}
-    \caption{Petriho sieť (časť 2)}
+    \caption{Petriho sieť (časť 2), \textit{Y} určuje počet veľkých a \textit{Z} počet malých košov}
     \label{PN-P2}
 \end{figure}
 
