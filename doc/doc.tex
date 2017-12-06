@@ -68,11 +68,11 @@
     \subsection{Autori a zdroje}
 
         \indent Autormi tohto projektu sú Peter Šuhaj (xsuhaj02) a Adrián Tóth (xtotha01) - študenti 3. ročníka bakalárskeho štúdia na \textit{Fakultě informačních technologií - Vysokého učení technického v Brně}\cite{VUT-FIT}.\\[0.4em]
-        \indent Zdroje informácii potrebné k vypracovaniu projektu boli získané od pána Attilu Šimka ktorý je vedúci odboru zodpovedného pre odvoz komunálneho odpadu pre mesto Rimavská Sobota nachádzajúce sa na území Slovenskej Republiky. Pán A. Šimko nám poskytol konzultáciu a odborné fakty na základe ktorých sme mohli navrhnúť náš model - \cite{IMS}(str. č. 7).
+        \indent Zdroje informácii potrebné k vypracovaniu projektu boli získané od pána Attilu Šimka ktorý je vedúci odboru zodpovedného pre odvoz komunálneho odpadu pre mesto Rimavská Sobota nachádzajúce sa na území Slovenskej Republiky. Pán A. Šimko nám poskytol konzultáciu a odborné fakty na základe ktorých sme mohli navrhnúť náš model.
 
     \subsection{Validita modelu}
 
-        \indent Validitu modelu - \cite{IMS}(str. č. 37), sa nám podarilo overiť na základe konfrontácie odborných faktov a faktov získaných zo simulačných výsledkov pomocou mnohých experimentov. Pomocou tejto konfrontácie sme mohli klasifikovať náš model za validný t.j. model adekvátny modelovanému systému - \cite{IMS}(str. č. 7).
+        \indent Validitu modelu - \cite{IMS}(str. č. 37), sa nám podarilo overiť na základe konfrontácie odborných faktov a faktov získaných zo simulačných výsledkov pomocou mnohých experimentov. Pomocou tejto konfrontácie sme mohli klasifikovať náš model za validný t.j. model adekvátny modelovanému systému.
 
 \section{Rozbor témy}
 
@@ -80,7 +80,7 @@
     \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
     \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou v Nemecku ako ojazdené vozidlá.\\[0.4em]
     \indent Zber komunálneho odpadu v meste Rimavská Sobota sa delí na zóny\cite{ZONA}, kde sa za jeden deň vyzbierajú 2 zóny pričom do zón sa vyšlú dve autá. Jedno auto má na starosti vyzbierať komunálny odpad jednej zóny za jeden deň ktorá mu je pridelená.\\[0.4em]
-    \indent Cena paliva k behu vozidla je 1.20\euro{} za jeden liter nafty\cite{NAFTA}. Vzdialenosť skládky od mesta je 26 až 28 kilometrov v závislosti od polohy auta v meste\cite{VZDIALENOST}.
+    \indent Cena paliva k behu vozidla je 1.20\euro{} za jeden liter nafty\cite{NAFTA} v Slovenskej republike. Vzdialenosť skládky od mesta je 26 až 28 kilometrov v závislosti od polohy auta v meste\cite{VZDIALENOST}.
 
     \subsection{Použité postupy}
 
@@ -96,14 +96,14 @@
             \item Ubuntu 16.04.3 LTS {\color{blue}{\href{http://releases.ubuntu.com/16.04/}{releases.ubuntu.com/16.04}}}
         \end{itemize}
 
-        \indent Rozhodli sme sa pre výber hore uvedených technológii pretože sú voľne dostupné a súčastne je možné pomocou nich implementovať simulačný model - \cite{IMS}(str. č. 44). Jazyk C++ a prekladač g++ sme sa rozhodli použiť kvôli knižnici SIMLIB, ktorá je vytvorená v jazyku C++.
+        \indent Rozhodli sme sa pre výber hore uvedených technológii pretože sú voľne dostupné a súčastne je možné pomocou nich implementovať simulačný model. Jazyk C++ a prekladač g++ sme sa rozhodli použiť kvôli knižnici SIMLIB, ktorá je vytvorená v jazyku C++.
 
 \section{Koncepcia modelu}
 
     \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku.\\[0.4em]
-    \indent V rámci tohto modelu - \cite{IMS}(str. č. 7), vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu.\\[0.4em]
+    \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu.\\[0.4em]
     \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebo prepojené.\\[0.4em]
-    \indent Pre popis modelu - \cite{IMS}(str. č. 7), sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
+    \indent Pre popis modelu sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
 
     \subsection{Forma konceptuálneho modelu}
 
@@ -112,11 +112,20 @@
 
 \section{Architektúra simulačného modelu}
 
-    Asdf.
+    \indent Na implementáciu simulačného modelu bol využitý modulárny prístup z dôvodu prehľadnosti s kombináciou objektového paradigmatu kvôli triedam použitych z knižnice SIMLIB.\\[0.4em]
+    \indent Priečinok \textit{data} obsahuje všetky potrebné dáta pre simuláciu ktorý obsahuje dva podpriečinky rozdeľujúce dáta podľa počtu vozidiel pre 2 a 3 vozidlá. Dáta sú uložené v súboroch typu \textit{tsv} (anglicky \textit{tab-separated values}), kde sú jednotlivé dáta zapísané v tvare, kde jeden riadok odpovedá jednej ulici. Uložené dáta v riadku označujúceho jednu ulicu sú: počet malých košov, počet veľkých košov, dĺžka ulice v kilometroch a názov ulice. Jeden súbor obsahuje všetky tie ulice, ktoré sú priradené jednému zodpovednému vozidlu ktoré má tieto ulice vyzbierať.\\[0.4em]
+    \indent Na načítanie informácii zo súborov sa stará modul \textit{file\_data} ktorý predá informácie vo forme vektora štruktúr typu street. Program využíva globálne premenné ktoré nesú informácie o samotnom behu simulačného modelu, a sú využívané na počítanie skúmaných metrík ako napríklad: celkový čas, váha celkovo nazbieraných smetí v kilogramoch, celková dĺžka absolvovanej cesty, atď.\\[0.4em]
+    \noindent Použité prvky z knižnice SIMLIB:
+    \begin{itemize}
+        \item Trieda \textit{Generator}\\[0.1em]
+              Je podtrieda triedy \textit{Event} z knižnice SIMLIB. Na začiatku simulácie sa vytvorí potrebný počet smetiarskych vozidiel podľa typu experimentu. Vozidlá sú naplánované v čase simulácie \textit{Time} t.j. modelový čas - \cite{IMS}(str. č. 166), čo znamená, že sa naraz vyšlú všetky autá zo stanice smerom k im priradením uliciam. {\color{red}{DOBA depo-1. ulica!}}
+        \item Trieda \textit{Car}\\[0.1em]
+              Je podtrieda triedy \textit{Process} z knižnice SIMLIB. Obsahuje metódu \textit{Behaviour()} kde je implementovaný celý proces zberu komunálneho odpadu pre jednotlivé vozidlo.
 
-    \subsection{Návrh}
-
-        Asdf.
+              {\color{red}
+              Táto časť je najdôležitejšia a najrozsiahlejšia v rámci simulácie. Auto po dobe presunu k prvej ulici začína zbierať smeti. Tu sa začne so spracovávaním ulíc ktoré sú typu street a sú načítané do vektoru po spustení programu. Auto vyberá z vektoru ulice postupne kým nejaké sú. Tu postupne vyprázdňuje veľké kontajnery, ďalej malé smetné koše. Pri vyprázdnení sa zníži jeho voľná kapacita, ku globálnej premennej sa pripočíta čas vyprázdnenia. Ďalej vždy sa skontroluje či ešte má kapacitu na ďalší kôš, ak nie tak odchádza na skládku ktorá je vzdialená s rovnomerným rozložením 25-30 kilometrov v závislosti od aktuálnej pozície auta v meste, pripočítajú sa kilometre, čas a pokračuje sa v obsluhe. Pri vyprázdnení všetkých košov sa ešte vyhodnotí čas strávený v danej ulici na základe dlžky a priemernej rýchlosti auta. Pokračuje sa na ďalšie ulice až kým nejaké existujú. Pri naplnení kapacity pred vstupom do ulice alebo keď auto obsahuje odpad po prechode ulicami sa prevedie odvoz na skládku ako v prípade pri naplnení v rámci ulice. Proces končí po vyprázdnení všetkých košov na každej ulice.
+              }
+    \end{itemize}
 
 \section{Simulačné experimenty a ich priebeh}
 

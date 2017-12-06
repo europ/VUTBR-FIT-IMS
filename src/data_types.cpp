@@ -7,7 +7,6 @@ street street_init(unsigned int bin_small_count, unsigned int bin_large_count, d
     s.bin_small_count = bin_small_count;
     s.bin_large_count = bin_large_count;
     s.street_length = street_length;
-    s.done = false;
 
     return s;
 }
