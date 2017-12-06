@@ -239,7 +239,7 @@ int main(int argc, char* argv[]) {
         first_street_dist[1] = 0.9;
 
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
-        streets.push_back(load_tsv_file(FILE_PATsH_OF_DATA_2));
+        streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
         std::cout << "Experiment 1 " << std::endl << std::endl;
     
     }
