@@ -122,7 +122,7 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1432.7513486515459" y="37.83695584000009"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="8.166679687499936" y="151.03194659999969">p=1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="-0.26886718750006366" y="151.03194659999969">p=1</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -132,7 +132,7 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1432.7513486515459" y="254.7099999999998"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="8.166679687499936" y="151.03194659999963">p=0</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="-0.26886718750006366" y="151.03194659999963">p=0</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -152,7 +152,7 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1646.59100025155" y="494.28999999999974"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="8.166679687499936" y="151.03194659999963">p=1</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="4.0" y="154.72000000000003">p=1</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -162,7 +162,7 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1432.7513486515459" y="471.58304415999953"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="8.166679687499936" y="151.03194659999963">p=0</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="46.177734375" x="1.7479441609536934" y="149.13793084000054">p=0</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -172,7 +172,8 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1005.64" y="747.6530441599995"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="16.216796875" x="14.71160156250005" y="154.72000000000003">T</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="17" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="43.578125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.35107421875" x="-15.26886718749995" y="154.72000000000003">čas
+odvozu</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
