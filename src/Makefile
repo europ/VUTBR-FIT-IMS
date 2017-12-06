@@ -28,8 +28,10 @@ $(PROJECT): $(A).o $(B).o $(PROJECT).o
 
 .PHONY: run
 run:
-	@./$(PROJECT)
-
+	@./$(PROJECT) experiment1
+	@./$(PROJECT) experiment2
+	@./$(PROJECT) experiment3
+	
 .PHONY: clean
 clean:
 	rm -f *.o
