@@ -6,7 +6,7 @@
 #include "constants.hpp"
 #include "data_types.hpp"
 #include "file_data.hpp"
-
+#include <cmath>
 
 
 // GLOBAL VARIABLES
@@ -40,7 +40,7 @@ class Car : public Process {
 
         //double tmpspeed;
         
-
+        double tmpdistance;
         double tmpspeed = Uniform(CAR_AVERAGE_SPEED-5,CAR_AVERAGE_SPEED+5); // rychlost pri vyjazdu
         double tmptime = (first_street_dist[carnum]/tmpspeed)*60; //cas prijazdu v minutach
 
@@ -121,18 +121,20 @@ class Car : public Process {
 
                     //TODO
                     if(dump_distance == 5){
-                        tmptime = Uniform(8,10);
+                        tmpdistance = Uniform(6,14);
                     }
                     else{
-                        tmptime = Uniform(50,55);
+                        tmpdistance = Uniform(50,58);
                     }
-                    
 
+                    
+                    gv_kms[carnum] += 2*tmpdistance;
+                    tmptime = (tmpdistance/Uniform(45,55))*60;
+                    gv_duration[carnum] += tmptime;
                     Wait(tmptime);
-                    gv_kms[carnum] += 2*dump_distance; // distance
-                    gv_duration[carnum] += tmptime; // celkovy cas
-                    smeti[carnum] += gv_kg_oftrash[carnum]; // TODO why we use smeti variable?
-                    gv_kg_oftrash[carnum] = 0; // vynulujeme pocitadlo kg smeti
+                    smeti[carnum] += gv_kg_oftrash[carnum]; // TODO
+
+                    gv_kg_oftrash[carnum] = 0; // vynulujeme pocitadlo kg smeti auta
 
                     continue;
                 
@@ -155,15 +157,17 @@ class Car : public Process {
 
                 //TODO
                 if(dump_distance == 5){
-                    tmptime = Uniform(8,10);
+                    tmpdistance = Uniform(4,10);
                 }
                 else{
-                    tmptime = Uniform(50,55);
+                    tmpdistance = Uniform(50,56);
                 }
 
-                Wait(tmptime);
-                gv_kms[carnum] += 2*dump_distance;
+                
+                gv_kms[carnum] += 2*tmpdistance;
+                tmptime = (tmpdistance/Uniform(45,55))*60;
                 gv_duration[carnum] += tmptime;
+                Wait(tmptime);
                 smeti[carnum] += gv_kg_oftrash[carnum]; // TODO
 
                 gv_kg_oftrash[carnum] = 0; // vynulujeme pocitadlo kg smeti auta
@@ -180,16 +184,18 @@ class Car : public Process {
 
             //TODO
             if(dump_distance == 5){
-                tmptime = Uniform(8,10);
+                tmpdistance = Uniform(4,10);
             }
             else{
-                tmptime = Uniform(50,55);
+                tmpdistance = Uniform(50,56);
             }
 
-            Wait(tmptime);
-            gv_kms[carnum] += 2*dump_distance;
+            
+            gv_kms[carnum] += 2*tmpdistance;
+            tmptime = (tmpdistance/Uniform(45,55))*60;
             gv_duration[carnum] += tmptime;
-            smeti[carnum] += gv_kg_oftrash[carnum];
+            Wait(tmptime);
+            smeti[carnum] += gv_kg_oftrash[carnum]; // TODO
 
             gv_kg_oftrash[carnum] = 0; // vynulujeme pocitadlo kg smeti auta
 
@@ -225,6 +231,8 @@ int main(int argc, char* argv[]) {
         exit(1);
     }
 
+   // std::cout << "=====================START======================" << std::endl << std::endl;
+
 
     if(std::string(argv[1]) == "experiment1"){
         car_count = 2;
@@ -240,7 +248,7 @@ int main(int argc, char* argv[]) {
 
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
-        std::cout << "Experiment 1 " << std::endl << std::endl;
+        std::cout << "Experiment 1 - skladka 27km, 2 auta" << std::endl << std::endl;
     
     }
     else if(std::string(argv[1]) == "experiment2"){
@@ -260,7 +268,7 @@ int main(int argc, char* argv[]) {
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_3)); // ulice pre auto
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_4));
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_5)); 
-        std::cout << "Experiment 2 " << std::endl<< std::endl ;
+        std::cout << "Experiment 2 - skladka 27km, 3 auta" << std::endl<< std::endl ;
 
     }
     else if(std::string(argv[1]) == "experiment3"){
@@ -277,7 +285,7 @@ int main(int argc, char* argv[]) {
 
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_1)); // ulice pre auto
         streets.push_back(load_tsv_file(FILE_PATH_OF_DATA_2));
-        std::cout << "Experiment 3 " << std::endl << std::endl;
+        std::cout << "Experiment 3 - skladka 5km, 2 auta" << std::endl << std::endl;
     }
     else{
         std::cerr << "Chybne argumenty!" << std::endl;
@@ -296,46 +304,59 @@ int main(int argc, char* argv[]) {
 
 
     // printing logs 
-    std::cout << "Prejete km auto c. 1           = " << gv_kms[0] << std::endl;
-    std::cout << "Dlzka zberu auto c. 1          = " << gv_duration[0]/60 << std::endl;
-    std::cout << "smeti v aute c. 1 po dokonceni = " << gv_kg_oftrash[0] << std::endl;
-    std::cout << "Smeti dokopy auto c. 1         = " << smeti[0] << std::endl;
-    std::cout << "Spotreba auta c. 1             = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
+    std::cout << "Prejete km auto c. 1           = " << gv_kms[0] << " km"<< std::endl;
+    std::cout << "Dlzka zberu auto c. 1          = " << gv_duration[0]/60 << " h"<< std::endl;
+    std::cout << "Smeti dokopy auto c. 1         = " << smeti[0] << " kg" << std::endl;
+    std::cout << "Spotreba auta c. 1             = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM << " L" << std::endl;
+    std::cout << "Naklady na naftu auto c. 1     = " << gv_kms[0]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER << " €"<< std::endl;
+    std::cout << "Naklady posadku auto c. 1      = " << ceil(gv_duration[0]/60)*3*2.50 << " €" << std::endl << std::endl;
 
 
+    std::cout << "Prejete km auto c. 2           = " << gv_kms[1] << " km" << std::endl;
+    std::cout << "Dlzka zberu auto c. 2          = " << gv_duration[1]/60 << " h" << std::endl;
+    std::cout << "Smeti dokopy auto c. 2         = " << smeti[1] << " kg"<< std::endl;
+    std::cout << "Spotreba auta c. 2             = " << gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM << " L" << std::endl << std::endl;
+    std::cout << "Naklady na naftu auto c. 1     = " << gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER << " €"<< std::endl;
+    std::cout << "Naklady posadku auto c. 1      = " << ceil(gv_duration[1]/60)*3*2.50 << " €" << std::endl << std::endl;
 
-    std::cout << "Prejete km auto c. 2           = " << gv_kms[1] << std::endl;
-    std::cout << "Dlzka zberu auto c. 2          = " << gv_duration[1]/60 << std::endl;
-    std::cout << "smeti v aute c. 2 po dokonceni = " << gv_kg_oftrash[1] << std::endl;
-    std::cout << "Smeti dokopy auto c. 2         = " << smeti[1] << std::endl;
-    std::cout << "Spotreba auta c. 2             = " << gv_kms[1]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
 
     if(std::string(argv[1]) == "experiment1" || std::string(argv[1]) == "experiment3"){
         
         double tmp_trash = smeti[0]+smeti[1];
         double tmp_time = gv_duration[0]/60 + gv_duration[1]/60;
-        std::cout << "Celkovy cas zberu              = " << tmp_time << std::endl;
-        std::cout << "Celkovy pocet smeti v kg       = " << tmp_trash << std::endl << std::endl;
+        std::cout << "Celkovy cas zberu              = " << tmp_time << " h" << std::endl;
+        std::cout << "Celkovy pocet smeti v kg       = " << tmp_trash << " kg"<< std::endl << std::endl;
+        //TODO
+        std::cout << "Celkove naklady na naftu       = " << tmp_trash << " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady posadka       = " << tmp_trash << " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady             = " << tmp_trash << " €"<< std::endl << std::endl;
+
         std::cout << "----------------------------------------------------------------------------" << std::endl << std::endl;
     }
 
  
 
     if(std::string(argv[1]) == "experiment2"){
-        std::cout << "Prejete km auto c. 3           = " << gv_kms[2] << std::endl;
-        std::cout << "Dlzka zberu auto c. 3          = " << gv_duration[2]/60 << std::endl;
-        std::cout << "meti v aute c. 3 po dokonceni  = " << gv_kg_oftrash[2] << std::endl;
-        std::cout << "Smeti dokopy auto c. 3         = " << smeti[2] << std::endl;
-        std::cout << "Spotreba auto c. 3             = " << gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM << "L" << std::endl << std::endl;
+        std::cout << "Prejete km auto c. 3           = " << gv_kms[2] << " km" << std::endl;
+        std::cout << "Dlzka zberu auto c. 3          = " << gv_duration[2]/60 << " h" << std::endl;
+        std::cout << "Smeti dokopy auto c. 3         = " << smeti[2] << " kg"<< std::endl;
+        std::cout << "Spotreba auto c. 3             = " << gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM << " L" << std::endl << std::endl;
+        std::cout << "Naklady na naftu auto c. 3     = " << gv_kms[2]*CAR_FUEL_CONSUMPTION_PER_KM*PRICE_FUEL_PER_LITER << " €"<< std::endl;
+        std::cout << "Naklady posadku auto c. 3      = " << ceil(gv_duration[2]/60)*3*2.50 << " €" << std::endl << std::endl;
+
 
         double tmp_trash = smeti[0]+smeti[1]+smeti[2];
         double tmp_time = gv_duration[0]/60 + gv_duration[1]/60 + gv_duration[2]/60;
-        std::cout << "Celkovy cas zberu              = " << tmp_time << std::endl;
-        std::cout << "Celkovy pocet smeti v kg       = " << tmp_trash  << std::endl << std::endl;
+        std::cout << "Celkovy cas zberu              = " << tmp_time << " h" << std::endl;
+        std::cout << "Celkovy pocet smeti v kg       = " << tmp_trash  << " kg" << std::endl << std::endl;
+        //TODO
+        std::cout << "Celkove naklady na naftu       = " << tmp_trash << " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady posadka       = " << tmp_trash << " €"<< std::endl << std::endl;
+        std::cout << "Celkove naklady             = " << tmp_trash << " €"<< std::endl << std::endl;
         std::cout << "----------------------------------------------------------------------------" << std::endl << std::endl;
     }
 
-
+    //std::cout << "=====================END======================" << std::endl << std::endl;
 
     //freeing variables
     delete [] smeti;
