@@ -77,10 +77,11 @@
 \section{Rozbor témy}
 
     \indent Potrebné informácie a fakty potrebné k implementácii boli získané na osobnom stretnutí s pánom Attilom Šimkom v organizácii \textit{Technické služby mesta Rimavská Sobota}\cite{TSMRS}. Na osobnom stretnutí nám boli poskytnuté štatistické informácie o komunálnom odpade, informácie o vozidlách potrebných na odvoz komunálneho odpadu a o skládke na komunálny odpad.\\[0.4em]
-    \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
-    \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou v Nemecku ako ojazdené vozidlá.\\[0.4em]
+    \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň, doba práce za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
+    \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Rýchlosť počas odvozu na skládku je priemerne 50km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou v Nemecku ako ojazdené vozidlá.\\[0.4em]
     \indent Zber komunálneho odpadu v meste Rimavská Sobota sa delí na zóny\cite{ZONA}, kde sa za jeden deň vyzbierajú 2 zóny pričom do zón sa vyšlú dve autá. Jedno auto má na starosti vyzbierať komunálny odpad jednej zóny za jeden deň ktorá mu je pridelená.\\[0.4em]
-    \indent Cena paliva k behu vozidla je 1.20\euro{} za jeden liter nafty\cite{NAFTA} v Slovenskej republike. Vzdialenosť skládky od mesta je 26 až 28 kilometrov v závislosti od polohy auta v meste.
+    \indent Cena paliva k behu vozidla je 1.12\euro{} za jeden liter nafty\cite{NAFTA} v Slovenskej republike. Vzdialenosť skládky od centra mesta je 27 kilometrov, presná vzdialenosť závisí od polohy auta v meste čo sa pohybuje v intervale 25-29km.
+    \indent Dľžky ulíc boli zistené pomocou webovej stránky Google Maps.
 
     \subsection{Použité postupy}
 
@@ -100,10 +101,10 @@
 
 \section{Koncepcia modelu}
 
-    \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku.\\[0.4em]
+    \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku v meste Rimavská Sobota za jeden deň v týždni(pondelok). Podľa poskytnutých informácií od konzultanta počet smetí, dľžka zberu, počet najazdených kilometrov v jednotlivých dňoch je približne rovnaká, rozdieli sú zanedbané takže výsledok môžeme ????zobraziťTODO??? aj na ostatné dni v týždni.\\[0.4em]
     \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu. Keďže auto sa pri naplnení jeho kapacity môže nachádzať v rozličnej vzdialenosti od skládky, takže táto vzdialenosť je určená funkciou \textit{Uniform(50,58)}.\\[0.4em]
     \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebou prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
-    \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú minimálnu hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
+    \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú hrubú hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
 
     \subsection{Popis konceptuálneho modelu}
 
@@ -148,7 +149,7 @@
 
     \subsection{Experiment 1}
 
-        Experiment č. 1 simuluje aktuálny zber komunálneho odpadu na základe získaných informácii ktoré sú popísané v kapitole č. 2. V tomto experimente sú ulice rozdelené do dvoch častí pre dve smetiarske autá. Vzdialenosť skládky je na jej skutočnej vzdialenosti t.j. vo vzdialenosti 27 kilometrov od mesta.
+        Experiment č. 1 simuluje aktuálny zber komunálneho odpadu na základe získaných informácii ktoré sú popísané v kapitole č. 2. V tomto experimente sú ulice rozdelené do dvoch častí pre dve smetiarske autá. Vzdialenosť skládky je na jej skutočnej vzdialenosti t.j. vo vzdialenosti 27 kilometrov od mesta. Všetky parametre sú podľa získaných 
 
 \begin{figure}[h]
     \center
@@ -156,6 +157,8 @@
     \caption{Experiment 1}
     \label{E1}
 \end{figure}
+        
+        
 
     \subsection{Experiment 2}
 
@@ -167,6 +170,9 @@
     \caption{Experiment 2}
     \label{E2}
 \end{figure}
+    
+
+        Po pridaní ďalšieho vozidla rovnakého typu znížili celkové náklady kedže smetiarské autá sa nenaplnili a odvoz vykonali iba raz na konci zberu. Výsledkom sa doba spracovania znížila čo má vplyv na výdavky na zamestnancov, tiež sa znížil počet kilometrov a s tým spotreba pohonných hmôt. 
 
     \subsection{Experiment 3}
 
@@ -179,13 +185,15 @@
     \label{E3}
 \end{figure}
 
+    Znížením vzdialenosti odpadovej skládky sa znížili celkové výdaje.
+
     \subsection{Záver simulačných experimentovaní}
 
         Asdf.
 
 \section{Záver}
 
-    \indent V tejto práci je skúmaný odvoz komunálneho odpadu v meste Rimavská Sobota čo spadá do problematiky odpadové hospodárstvo z oblasti infraštruktúry. Testovali sme chovanie systému a následne konfrontovali informácie získané simuláciou s informáciami o modelovanom systéme, čo potvrdzuje validitu nášho modelu. Uskutočnili sme tri experimenty ... Zo získaných výsledkov pomocou experimentov vyplýva doporučenie pre prevádzkovateľa odvozu komunálneho odpadu v meste Rimavská Sobota aby dali dôraz na .... (počet, atd.). Ak by prijali toto doporučenie, klesli by náklady na odvoz komunálneho odpadu a súčastne by sa zlepšila efektivita odvozu odpadu. Naše experimenty poukazujú na činitele ktoré môžu výrazne ovplivniť náklady na zozbieranie odpadu a jeho vývoz z mesta.
+    \indent V tejto práci je skúmaný odvoz komunálneho odpadu v meste Rimavská Sobota čo spadá do problematiky odpadové hospodárstvo z oblasti infraštruktúry. Testovali sme chovanie systému a následne konfrontovali informácie získané simuláciou s informáciami o modelovanom systéme, čo potvrdzuje validitu nášho modelu. Uskutočnili sme tri experimenty kde sme manipulovali s počtom vozidiel a vzdialenosťou odpadovej skládky od mesta. Zo získaných výsledkov pomocou experimentov vyplýva doporučenie pre prevádzkovateľa odvozu komunálneho odpadu v meste Rimavská Sobota aby dali dôraz na zvýšenie počtu áut o 1 alebo o vytvorení odpadovej skládky v blízkosti mesta ak sú na to financie. Ak by prijali toto doporučenie, klesli by náklady na odvoz komunálneho odpadu a súčastne by sa zlepšila efektivita odvozu odpadu. Naše experimenty poukazujú na činitele ktoré môžu výrazne ovplivniť náklady na zozbieranie odpadu a jeho vývoz z mesta.
 
 \newpage
 \section{Prílohy}

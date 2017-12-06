@@ -151,10 +151,10 @@ class Car : public Process {
 
                 //TODO
                 if(dump_distance == 5){
-                    tmpdistance = Uniform(4,10);
+                    tmpdistance = Uniform(6,14);
                 }
                 else{
-                    tmpdistance = Uniform(50,56);
+                    tmpdistance = Uniform(50,58);
                 }
 
                 
@@ -178,10 +178,10 @@ class Car : public Process {
 
             //TODO
             if(dump_distance == 5){
-                tmpdistance = Uniform(4,10);
+                tmpdistance = Uniform(6,14);
             }
             else{
-                tmpdistance = Uniform(50,56);
+                tmpdistance = Uniform(50,58);
             }
 
             
