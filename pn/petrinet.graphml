@@ -172,7 +172,7 @@ v teréne</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="953.0399999999998" y="741.6560883199993"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.5361328125" x="-24.994453125000064" y="151.03194659999963">Uniform(50,55)</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="13.16259765625" x="16.238701171874936" y="154.72000000000003">T</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
