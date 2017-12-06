@@ -176,7 +176,7 @@
           <y:Geometry height="86.40000000000003" width="193.27999999999997" x="1039.9639657228795" y="967.5495477131888"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="94.6400000000001" y="41.200000000000045"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="94.63999999999987" y="41.200000000000045"/>
         </y:GenericNode>
       </data>
     </node>
@@ -197,8 +197,9 @@ odvozu</y:NodeLabel>
           <y:Geometry height="150.72" width="45.63999999999987" x="1003.1654090218487" y="1213.3442181530365"/>
           <y:Fill color2="#B7C9E3" hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="17" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="43.578125" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.35107421875" x="-15.268867187500064" y="149.32623345521165">čas
-odvozu</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="17" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="63.3671875" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.32666015625" x="-19.343330078125064" y="150.20694928947387">čas
+prechodu
+ulicou</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -610,7 +611,6 @@ na ulici<y:LabelModel>
       </data>
     </edge>
     <edge id="e26" source="n4" target="n20">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -621,7 +621,6 @@ na ulici<y:LabelModel>
       </data>
     </edge>
     <edge id="e27" source="n5" target="n21">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -632,7 +631,6 @@ na ulici<y:LabelModel>
       </data>
     </edge>
     <edge id="e28" source="n20" target="n22">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -645,7 +643,6 @@ na ulici<y:LabelModel>
       </data>
     </edge>
     <edge id="e29" source="n21" target="n22">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -658,7 +655,6 @@ na ulici<y:LabelModel>
       </data>
     </edge>
     <edge id="e30" source="n22" target="n11">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

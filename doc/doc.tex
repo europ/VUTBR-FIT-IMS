@@ -77,11 +77,10 @@
 \section{Rozbor témy}
 
     \indent Potrebné informácie a fakty potrebné k implementácii boli získané na osobnom stretnutí s pánom Attilom Šimkom v organizácii \textit{Technické služby mesta Rimavská Sobota}\cite{TSMRS}. Na osobnom stretnutí nám boli poskytnuté štatistické informácie o komunálnom odpade, informácie o vozidlách potrebných na odvoz komunálneho odpadu a o skládke na komunálny odpad.\\[0.4em]
-    \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň, doba práce za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
-    \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Rýchlosť počas odvozu na skládku je priemerne 50km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou v Nemecku ako ojazdené vozidlá.\\[0.4em]
+    \indent Štatistické informácie o komunálnom odpade poskytnuté pánom A. Šimkom boli nasledovné: typ a počet smetných košov na uliciach, priemerná váha celkového odpadu v tonách vyzbieraného za jeden deň, doba zberu a vývozu odpadu za jeden deň. Priemerný čas potrebný ku spracovaniu jedného smetného koša bol získaný osobním meraním v teréne.\\[0.4em]
+    \indent Stroje odvážajúce komunálny odpad sú značky Mercedes-Benz typu Econic s nosnosťou 10,4 ton. Priemerná spotreba jedného vozidla je 70 litrov nafty na 100 kilometrov. Rýchlosť vozidla počas zberu smetí, t.j. pohyb vozidla medzi smetnými kôšmi na ulici a pri presune medzi jednotlivými ulicami, je v priemere 20km/h. Rýchlosť počas odvozu na skládku je v priemere 50km/h. Všetky informácie o vozidlách, ktoré odvážajú komunálny odpad, nám boli poskynuté na osobnom stretnutí od pána A. Šimka, keďže sa jedná o vozidlá ktoré boli zakúpené organizáciou ako ojazdené vozidlá.\\[0.4em]
     \indent Zber komunálneho odpadu v meste Rimavská Sobota sa delí na zóny\cite{ZONA}, kde sa za jeden deň vyzbierajú 2 zóny pričom do zón sa vyšlú dve autá. Jedno auto má na starosti vyzbierať komunálny odpad jednej zóny za jeden deň ktorá mu je pridelená.\\[0.4em]
-    \indent Cena paliva k behu vozidla je 1.12\euro{} za jeden liter nafty\cite{NAFTA} v Slovenskej republike. Vzdialenosť skládky od centra mesta je 27 kilometrov, presná vzdialenosť závisí od polohy auta v meste čo sa pohybuje v intervale 25-29km.
-    \indent Dľžky ulíc boli zistené pomocou webovej stránky Google Maps.
+    \indent Cena paliva k behu vozidla je 1.12\euro{} za jeden liter nafty\cite{NAFTA} v Slovenskej republike. Vzdialenosť skládky od centra mesta je 27 kilometrov, presná vzdialenosť závisí od polohy auta v meste čo sa pohybuje v intervale 25-29km. Dĺžky ulíc boli získané pomocou webovej stránky Google Maps.
 
     \subsection{Použité postupy}
 
@@ -101,24 +100,23 @@
 
 \section{Koncepcia modelu}
 
-    \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho vývoz na skládku v meste Rimavská Sobota za jeden deň v týždni(pondelok). Podľa poskytnutých informácií od konzultanta počet smetí, dľžka zberu, počet najazdených kilometrov v jednotlivých dňoch je približne rovnaká, rozdieli sú zanedbané takže výsledok môžeme ????zobraziťTODO??? aj na ostatné dni v týždni.\\[0.4em]
-    \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu. Keďže auto sa pri naplnení jeho kapacity môže nachádzať v rozličnej vzdialenosti od skládky, takže táto vzdialenosť je určená funkciou \textit{Uniform(50,58)}.\\[0.4em]
-    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže ulice sú medzi sebou prepojené. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je určený funkciou \textit{Uniform(0.50,0.67)} a pre veľký kôš \textit{Uniform(0.83,1)}.\\[0.4em]
-    \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú hrubú hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za tú hodinu aj keď ju nedokončil.
+    \indent Táto práca sa zaobéra s odvozom komunálneho odpadu, t.j. zozbieranie komunálneho odpadu a jeho odvoz v meste Rimavská Sobota za jeden deň v týždni (pondelok). Podľa poskytnutých informácií od konzultanta počet smetí, dľžka zberu, počet najazdených kilometrov v jednotlivých dňoch je približne rovnaká.\\[0.4em]
+    \indent V rámci tohto modelu vychádzame zo zdrojov spomenutých v kapitole 2 \textit{Rozbor témy} ktoré sa vzťahujú na náklady zberu a vývozu komunálneho odpadu. Bolo zanedbané zrýchlenie vozidla z dôvodu používania priemernej rýchlosti vozidla. Náklady zberu a vývozu odpadu nesúvisia s nákladmi na správu vozidiel, správa a prevádzka skládky, takže tieto náklady sú tiež zanedbané. Jediná súvislosť so skládkou je jej vzdialenosť, ktorá má výrazný vplyv na náklady potrebné na odvoz odpadu. Keďže smetiarske auto sa pri naplnení jeho kapacity môže nachádzať v rozličnej vzdialenosti od skládky, takže táto vzdialenosť sa pohybuje v rozmedzí od 50 do 58 kilometrov čo zahrňuje cestu tam aj naspäť.\\[0.4em]
+    \indent Vozidlo má vopred stanovené ulice ktoré má vyzbierať za daný deň. Doba presunu vozidla počas zberu odpadu medzi ulicami je zanedbaná, keďže sa ulice na seba viažu. Doba prechodu ulicou je vypočítaná na základe dĺžky ulice a priemernej rýchlosti auta. Čas potrebný na spracovanie malého koša je potreba 30-40 sekúnd a pre veľký kôš je potreba 50-60 sekúnd.\\[0.4em]
+    \indent Do nákladov na odvoz odpadu sú taktiež zahrnuté náklady na zamestnancov. Všetci zamestnanci majú hrubú hodinovú mzdu 2.50\euro{}. Ak zamestnanec začal ďalšiu pracovnú hodinu tak dostáva mzdu aj za túto hodinu.
 
     \subsection{Popis konceptuálneho modelu}
 
-        \indent Pre popis modelu sme použili deklaratívny model typu petriho siete - \cite{IMS}(str. č. 49).
-
-\begin{figure}[h]
+\begin{figure}[H]
     \center
     \includegraphics[scale=0.3]{../pn/petrinet-small.eps}
     \caption{Zjednodušená petriho sieť}
     \label{P}
 \end{figure}
 
-    \indent Petriho sieť na obrázku ...TODOhref zobrazuje proces zberu odpadu jedného auta, tento proces je rovnaký pre všetky smetiarské autá, ich počet je vytvorený na základe typu simulácie. Auto na začiatku sa dostane na prvú ulicu kde začína prácu. Čas potrebný prechodu závisí na priemernej rýchlosti auta kde sa použilo uniformné rozdelenie +- 5km/h od rýchlosti, kvôli možnej spomalení v doprave v meste. Tiež súvisí na vzdialenosti prvej ulice, ktorá bola zistená pre jenotlivé autá pomocou Google Maps. Auto po vstupu do ulice postupne spracuje veľké kontajnery(kapacita 1100l) a malé smetné koše(kapacita 120l). Doba spracovania veľkého koša podľa meraní v terenú sa pohybujde v intervale 50-60 sekúnd, doba pre spracovanie malého koša v intervale 30-40 sekúnd. Ak vyzbieral všetky tak po čase potrebného k presunu cey danú ulicu ktorá je určená na základe dlžky ulice a priemernej rýchlosti smetiarkeho auta pokračuje sa na spracovanie ďalešej ulice kým nejaká nespracovaná existuje. Poradie spracovania a 
-    Rozšírená petriho sieť je vidieť v prílohe ...TODO... . Je zobrazená kapacita ktorá sa znižuje pri spracovaní smetného koša(podľa odobrného konzultanta naplnenie malého koša sa pohybuje v rozmedzí 10-40kg, naplnenie veľkého v rozmedzí 100-150kg). Ak počas spracovania odpadu v ulici  alebo pred vstupom do nasledujúcej ulice kapacita auta je naplnená tak sa odpad odvezie na skládku a spracovanie pokračuje ďalej. Odvoz sa taktiež vykoná po spracovaní všetkých ulíc a auto sa vráti do centráli, tým práca auta končí. 
+    \indent Na popis modelu sme použili petriho sieť. Zjednodušená petriho sieť na obrázku číslo \ref{P} zobrazuje proces zberu odpadu jedným autom. Tento proces je rovnaký pre všetky smetiarske autá, ich počet je vytvorený na základe typu simulácie. Auto sa na začiatku dostane na prvú ulicu kde začína zber odpadu.\\[0.4em]
+    \indent Čas potrebný na výjazd do prvej ulice závisí od priemernej rýchlosti auta, ktorá sa pri výjazde vozidla pohybuje v rozmedzí 15-25 km/h, kvôli možnému spomaleniu dopravy v meste. Čas výjazdu taktiež závisí od vzdialenosti prvej ulice, ktorej vzdialenosť bola určená pomocou Google Maps. Auto vstupom do ulice postupne spracuje veľké kontajnery s kapacitou 1100 litrov, a malé smetné koše s kapacitou 120 litrov. Doba spracovania veľkého koša sa riadi funkciou \textit{Uniform(0.83,1)} a doba pre spracovanie malého koša sa riadi funkciou \textit{Uniform(0.50,0.67)}. Čas spracovania jednej ulice závisí od počtu smetných košov (veľkých i malých) a od jej dĺžky a súčasne aj od priemernej rýchlosti auta pri zbere odpadu. Poradie spracovania košov nemá vplyv na celkový výsledok.\\[0.4em]
+    \indent Rozšírená petriho sieť sa nachádza v prílohe na obrázkoch \ref{PN-P1} a \ref{PN-P2}. V nej zobrazená kapacita ktorá sa znižuje pri spracovávaní smetných košov (podľa odobrného konzultanta naplnenie malého koša sa pohybuje v rozmedzí 10-40kg, naplnenie veľkého koša v rozmedzí 100-150kg). Ak sa počas spracovania odpadu v ulici, alebo pred vstupom do nasledujúcej ulice kapacita auta naplní, tak sa odpad odvezie na skládku, auto sa vráti naspäť a spracovávanie pokračuje ďalej. Ak sa ulice spracujú a smetiarske auto nie je prázdne, tak sa odvezie odpad a vráti sa do strediska, v prípade že je prázde sa priamo vracia do strediska.
 
 
 \section{Architektúra simulačného modelu}
@@ -129,10 +127,10 @@
     \noindent Použité prvky z knižnice SIMLIB:
     \begin{itemize}
         \item Trieda \textit{Generator}\\[0.1em]
-              Je podtrieda triedy \textit{Event} z knižnice SIMLIB. Na začiatku simulácie sa vytvorí potrebný počet smetiarskych vozidiel podľa typu experimentu. Vozidlá sú naplánované v čase simulácie \textit{Time} t.j. modelový čas - \cite{IMS}(str. č. 166), čo znamená, že sa naraz vyšlú všetky autá zo stanice smerom k im priradením uliciam. {\color{red}{DOBA stredisko-1. ulica!}}
+              Je podtrieda triedy \textit{Event} z knižnice SIMLIB. Na začiatku simulácie sa vytvorí potrebný počet smetiarskych vozidiel podľa typu experimentu. Vozidlá sú naplánované v čase simulácie \textit{Time} t.j. modelový čas - \cite{IMS}(str. č. 166), čo znamená, že sa naraz vyšlú všetky autá zo stanice smerom k im priradením uliciam.
         \item Trieda \textit{Car}\\[0.1em]
               Je podtrieda triedy \textit{Process} z knižnice SIMLIB. Obsahuje metódu \textit{Behaviour()} kde je implementovaný celý proces zberu komunálneho odpadu pre jednotlivé vozidlo. Táto časť je najrozsiahlejšia v rámci simulácie. Vozidlo t.j. smetiarske auto, začína zbierať smeti po určitej dobe na začiatku potrebnej k presunu na prvú nemu priradenú ulicu.\\[0.3em]
-              Po presune na prvú ulicu uloženej vo vektore štruktúr typu street, auto postupuje cez ulicu a vyprázdňuje smetné koše. Po spracovaní ulice smetiarskym autom sa ulica odstráni z vektoru ulíc a spracovávanie pokračuje s ďalšími ulicami vo vektore až kým ich počet sa nerovná nule. Ulica obsahuje počet veľkých a malých smetných košov na komunálny odpad ktorých spracovanie zaberie určitý čas. Pri vyprázdnení jedného smetného koša sa voľná kapacita smetiarskeho auta znižuje, kvôli čomu sa kontroluje dostupné voľné miesto na odpad v aute. Ak je kapacita nedostačujúca vozidlo preruší spracovávanie ulice a odváža svoj aktuálny obsah smetí na skládku ktorá je vzdialená v určitej vzdialenosti. Vzdialenosť auta je daná pozíciou auta v meste a vzdialenosťou skládky od mesta. Smetiarske auto pri odvoze odpadu na skládku sa vracia na to isté miesto na ulici z ktorého vyrazilo. Takto pokračuje spracovávanie ulíc t.j. vyprázdnenie všetkých košov na ulici, a keď sa všetky ulice spracujú, tak sa skontroluje či auto obsahuje odpad ktorý ešte treba odviezť pred tým ako sa vráti do strediska z ktoré začalo.
+              Po presune na prvú ulicu uloženej vo vektore štruktúr typu street, auto postupuje cez ulicu a vyprázdňuje smetné koše. Po spracovaní ulice smetiarskym autom sa ulica odstráni z vektoru ulíc a spracovávanie pokračuje s ďalšími ulicami vo vektore až kým ich počet sa nerovná nule. Štruktúra typu street obsahuje počet veľkých a malých smetných košov a dĺžku ulice. Pri vyprázdnení jedného smetného koša sa voľná kapacita smetiarskeho auta znižuje, kvôli čomu sa kontroluje dostupné voľné miesto na odpad v aute. Ak je kapacita nedostačujúca vozidlo preruší spracovávanie ulice a odváža svoj aktuálny obsah smetí na skládku ktorá je vzdialená v určitej vzdialenosti. Vzdialenosť auta je daná pozíciou auta v meste a vzdialenosťou skládky od mesta. Smetiarske auto pri odvoze odpadu na skládku sa vracia na to isté miesto na ulici z ktorého vyrazilo. Takto pokračuje spracovávanie ulíc t.j. vyprázdnenie všetkých košov na uliciach, a keď sa všetky ulice spracujú, tak sa skontroluje či auto obsahuje odpad ktorý ešte treba odviezť pred tým ako sa vráti do strediska z ktorého začalo a proces končí.
     \end{itemize}
 
 \section{Simulačné experimenty a ich priebeh}
@@ -149,7 +147,7 @@
 
     \subsection{Experiment 1}
 
-        Experiment č. 1 simuluje aktuálny zber komunálneho odpadu na základe získaných informácii ktoré sú popísané v kapitole č. 2. V tomto experimente sú ulice rozdelené do dvoch častí pre dve smetiarske autá. Vzdialenosť skládky je na jej skutočnej vzdialenosti t.j. vo vzdialenosti 27 kilometrov od mesta. Všetky parametre sú podľa získaných 
+        Experiment č. 1 simuluje aktuálny zber komunálneho odpadu na základe získaných informácii ktoré sú popísané v kapitole č. 2. V tomto experimente sú ulice rozdelené do dvoch častí pre dve smetiarske autá. Vzdialenosť skládky je na jej skutočnej vzdialenosti t.j. vo vzdialenosti 27 kilometrov od mesta.
 
 \begin{figure}[h]
     \center
@@ -172,11 +170,11 @@
 \end{figure}
     
 
-        Po pridaní ďalšieho vozidla rovnakého typu znížili celkové náklady kedže smetiarské autá sa nenaplnili a odvoz vykonali iba raz na konci zberu. Výsledkom sa doba spracovania znížila čo má vplyv na výdavky na zamestnancov, tiež sa znížil počet kilometrov a s tým spotreba pohonných hmôt. 
+        Po pridaní ďalšieho vozidla rovnakého typu sa znížili celkové náklady keďže smetiarské autá sa nenaplnili a odvoz vykonali iba raz na konci zberu. Výsledkom sa doba spracovania znížila čo má vplyv na výdavky na zamestnancov, tiež sa znížil počet kilometrov a s tým spotreba pohonných hmôt. 
 
     \subsection{Experiment 3}
 
-        Experiment č. 3 berie v úvahu bližšiu vzdialenosť skládky a dve smetiarske autá.
+        Experiment č. 3 berie v úvahu že sa skládka nachádza vo vzdialenosti 5 kilometrov a sú použité dve smetiarske autá.
 
 \begin{figure}[h]
     \center
@@ -187,13 +185,11 @@
 
     Znížením vzdialenosti odpadovej skládky sa znížili celkové výdaje.
 
-    \subsection{Záver simulačných experimentovaní}
-
-        Asdf.
+\newpage
 
 \section{Záver}
 
-    \indent V tejto práci je skúmaný odvoz komunálneho odpadu v meste Rimavská Sobota čo spadá do problematiky odpadové hospodárstvo z oblasti infraštruktúry. Testovali sme chovanie systému a následne konfrontovali informácie získané simuláciou s informáciami o modelovanom systéme, čo potvrdzuje validitu nášho modelu. Uskutočnili sme tri experimenty kde sme manipulovali s počtom vozidiel a vzdialenosťou odpadovej skládky od mesta. Zo získaných výsledkov pomocou experimentov vyplýva doporučenie pre prevádzkovateľa odvozu komunálneho odpadu v meste Rimavská Sobota aby dali dôraz na zvýšenie počtu áut o 1 alebo o vytvorení odpadovej skládky v blízkosti mesta ak sú na to financie. Ak by prijali toto doporučenie, klesli by náklady na odvoz komunálneho odpadu a súčastne by sa zlepšila efektivita odvozu odpadu. Naše experimenty poukazujú na činitele ktoré môžu výrazne ovplivniť náklady na zozbieranie odpadu a jeho vývoz z mesta.
+    \indent V tejto práci je skúmaný odvoz komunálneho odpadu v meste Rimavská Sobota čo spadá do problematiky odpadové hospodárstvo z oblasti infraštruktúry. Testovali sme chovanie systému a následne konfrontovali informácie získané simuláciou s informáciami o modelovanom systéme, čo potvrdzuje validitu nášho modelu. Uskutočnili sme tri experimenty kde sme manipulovali s počtom vozidiel a vzdialenosťou skládky od mesta. Zo získaných výsledkov pomocou experimentov vyplýva doporučenie pre prevádzkovateľa odvozu komunálneho odpadu v meste Rimavská Sobota aby zvážili zakúpenie ďalšieho vozidla ak sa skládka bude nachádzať na aktuálnom mieste. Dlhodobo lepším odporučením by bolo  vytvorenie skládky v blízkosti mesta ak sú na to financie. Ak by prijali toto doporučenie, klesli by náklady na odvoz komunálneho odpadu a súčastne by sa zlepšila efektivita odvozu odpadu. Naše experimenty poukazujú na činitele ktoré môžu výrazne ovplivniť náklady na zozbieranie odpadu a jeho odvoz z mesta.
 
 \newpage
 \section{Prílohy}
